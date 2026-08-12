@@ -19,6 +19,8 @@ local mainMod = "ALT" -- Sets "Windows" key as main modifier
 
 --hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SPACE", hl.dsp.global("quickshell:toggle-launcher"))
+--hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("qs ipc call applauncher toggle"))
+
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
@@ -95,7 +97,8 @@ hl.bind(mainMod .. "+ SHIFT + Tab",  hl.dsp.group.prev())
 hl.bind(mainMod .. "+ SHIFT + G",    hl.dsp.group.lock())
 
 -- Cipboard
-hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd([[cliphist list | rofi -dmenu -display-columns 2 -p "Clipboard" -theme /home/hervert/.config/rofi/launcher.rasi | cliphist decode | wl-copy]]))
+--hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd([[cliphist list | rofi -dmenu -display-columns 2 -p "Clipboard" -theme /home/hervert/.config/rofi/launcher.rasi | cliphist decode | wl-copy]]))
+hl.bind(mainMod .. "+ V", hl.dsp.global("quickshell:toggle-clipboard"))
 
 -- Screenshot
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))

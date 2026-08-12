@@ -110,11 +110,11 @@ hl.window_rule({
 hl.window_rule({
   name = "file picker in browser",
   match = {
-    class = "xdg%-desktop%-portal%-gtk",
+    class = "xdg-desktop-portal-gtk",
   },
   float = true,
-  center = true,
-  size = { "80%", "80%" },
+  --center = true,
+  size = {"(monitor_w*0.6)", "(monitor_h*0.6)"},
 })
 
 -- ----- Nautilus ----- --
@@ -164,13 +164,13 @@ hl.window_rule({
 })
 
 -- ----- QuickShell ----- --
-hl.window_rule({
-  name = "launcher-quick",
-  match = {
-    class = "^org.quickshell$",
-  },
-  float = true,
-  center = true,
-  -- size = { "90%", "90%" },
-  -- size = { "50%", "50%" },
-})
+-- hl.window_rule({
+--   name = "launcher-quick",
+--   match = {
+--     class = "^org.quickshell$",
+--   },
+--   float = true,
+--   center = true,
+--   -- size = { "90%", "90%" },
+--   -- size = { "50%", "50%" },
+-- })
