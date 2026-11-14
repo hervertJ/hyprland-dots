@@ -50,8 +50,13 @@ hl.window_rule({
 
 -- ---------------------------------------------------------------------- --
 
+--=================================================
+--                  MAGIC WK
+--=================================================
+
+hl.workspace_rule({ workspace = "special:magic", gaps_out = 35, gaps_in = 7 })
+
 -- ----- GNS3 ----- --
-hl.workspace_rule({ workspace = "special:magic", gaps_out = 50, gaps_in = 7 })
 
 hl.window_rule({ --GNS3 GUI
   name = "GNS3",
@@ -62,9 +67,9 @@ hl.window_rule({ --GNS3 GUI
 })
 
 hl.window_rule({
-  name = "kitty",
+  name = "ghostty",
   match = {
-    class = "kitty",
+    class = "com.mitchellh.ghostty",
     workspace = "special:magic",
   },
   float = true,
@@ -95,16 +100,19 @@ hl.window_rule({
 })
 
 --# ----- OBSIDIAN ----- #
---hl.workspace_rule({ workspace = "name:magic", gapsout = 50, gapsin = 7 }) 
 
 hl.window_rule({
   name = "obsidian",
   match = {
-    class = "obsidian",
+    class = "md.Obsidian",
   },
   workspace = "special:magic",
   animation = "popin",
 })
+
+--=================================================
+--                OTHER STUFF 
+--=================================================
 
 -- ----- File picker for browser ----- --
 hl.window_rule({
@@ -113,8 +121,8 @@ hl.window_rule({
     class = "xdg-desktop-portal-gtk",
   },
   float = true,
-  --center = true,
-  size = {"(monitor_w*0.6)", "(monitor_h*0.6)"},
+  center = true,
+  size = {"(monitor_w*0.65)", "(monitor_h*0.6)"},
 })
 
 -- ----- Nautilus ----- --
@@ -161,6 +169,30 @@ hl.window_rule({
   center = true,
   -- size = { "90%", "90%" },
   -- size = { "50%", "50%" },
+})
+
+-- ----- Btop (dont work) ----- --
+hl.window_rule({
+  name = "btop floating",
+  match = {
+    title = "^btop$",
+  },
+  float = true,
+  center = true,
+  --size = { "90%", "90%" },
+  size = {"(monitor_w*0.6)", "(monitor_h*0.6)"},
+})
+
+-- ----- Blueman float ----- --
+hl.window_rule({
+  name = "blueman float",
+  match = {
+    class = "blueman-manager",
+  },
+  float = true,
+  center = true,
+  --size = { "90%", "90%" },
+  size = {"(monitor_w*0.5)", "(monitor_h*0.7)"},
 })
 
 -- ----- QuickShell ----- --

@@ -8,6 +8,7 @@ hl.config({
     kb_variant = "altgr-intl, intl",
     kb_model   = "",
     kb_options = "ctrl:nocaps, grp:alt_caps_toggle",
+    --kb_options = "lv3:lalt_switch, grp:alt_caps_toggle",
 
     kb_rules   = "",
 

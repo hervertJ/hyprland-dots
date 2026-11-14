@@ -4,12 +4,12 @@
 
 -- Set programs that you use
 local terminal    = "ghostty"
-local browser     = "zen-browser"
-local fileManager = "nautilus"
+--local browser     = "zen-browser"
+-- local fileManager = "nautilus"
 
-local menu        = "pkill rofi || rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/app-launcher.rasi"
-local dmenu       = "pkill rofi || sh ~/.config/colorschemes/launcher.sh"
-local wallpaper   = "pkill rofi || sh ~/scripts/wallpaper.sh"
+-- local menu        = "pkill rofi || rofi -no-lazy-grab -show drun -modi drun -theme ~/.config/rofi/app-launcher.rasi"
+-- local dmenu       = "pkill rofi || sh ~/.config/colorschemes/launcher.sh"
+-- local wallpaper   = "pkill rofi || sh ~/scripts/wallpaper.sh"
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -18,18 +18,19 @@ local wallpaper   = "pkill rofi || sh ~/scripts/wallpaper.sh"
 local mainMod = "ALT" -- Sets "Windows" key as main modifier
 
 --hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + SPACE", hl.dsp.global("quickshell:toggle-launcher"))
+--hl.bind(mainMod .. " + SPACE", hl.dsp.global("quickshell:toggle-launcher"))
+hl.bind(mainMod .. " + SPACE", hl.dsp.global("quickshell:applauncher-toggle"))
 --hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("qs ipc call applauncher toggle"))
 
 hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
 -- closeWindowBind:set_enabled(false)
 -- hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
---hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+-- hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind("SUPER + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind("SUPER + F", hl.dsp.window.fullscreen())
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(dmenu))
---hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
+-- hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(dmenu))
+hl.bind(mainMod .. " + SHIFT + J", hl.dsp.layout("togglesplit"))    -- dwindle only
 --hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("sh ~/scripts/fastprobe.sh"))
 
 -- Move focus with mainMod + arrow keys
@@ -100,8 +101,13 @@ hl.bind(mainMod .. "+ SHIFT + G",    hl.dsp.group.lock())
 --hl.bind(mainMod .. "+ V", hl.dsp.exec_cmd([[cliphist list | rofi -dmenu -display-columns 2 -p "Clipboard" -theme /home/hervert/.config/rofi/launcher.rasi | cliphist decode | wl-copy]]))
 hl.bind(mainMod .. "+ V", hl.dsp.global("quickshell:toggle-clipboard"))
 
+-- Wallpapers
+hl.bind(mainMod .. "+ SHIFT + W", hl.dsp.global("quickshell:wallpaper-toggle"))
+
 -- Screenshot
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+--hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd([[hyprshot -m region --clipboard-only -f "Captura_$(date +'%Y%m%d_%H%M%S').png"]]))
+
 hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd([[grim -g "$(slurp -c '##ff0000ff')" -t ppm - | satty --filename - --output-filename ~/Pictures/Screenshots/satty-$(date '+\%Y\%m\%d-\%H:\%M:\%S').png]]))
 
 -- Hyprlock
